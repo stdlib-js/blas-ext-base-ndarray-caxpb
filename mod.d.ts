@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2026 The Stdlib Authors.
@@ -16,18 +16,31 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
+
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@main/index.d.ts"/>
+
+import { complex64ndarray, typedndarray } from '@stdlib/types/ndarray';
+import { Complex64 } from '@stdlib/types/complex';
 
 /**
-* Multiply each element in a one-dimensional single-precision complex floating-point ndarray by a scalar constant and add a scalar constant to each result.
+* Multiplies each element in a one-dimensional single-precision complex floating-point ndarray by a scalar constant and adds a scalar constant to each result.
 *
-* @module @stdlib/blas-ext-base-ndarray-caxpb
+* ## Notes
+*
+* -   The function expects the following ndarrays:
+*
+*     -   a one-dimensional input ndarray.
+*     -   a zero-dimensional ndarray containing the scalar constant to multiply.
+*     -   a zero-dimensional ndarray containing the scalar constant to add.
+*
+* @param arrays - array-like object containing ndarrays
+* @returns input ndarray
 *
 * @example
 * var Complex64Vector = require( '@stdlib/ndarray-vector-complex64' );
 * var Complex64 = require( '@stdlib/complex-float32-ctor' );
 * var scalar2ndarray = require( '@stdlib/ndarray-from-scalar' );
-* var caxpb = require( '@stdlib/blas-ext-base-ndarray-caxpb' );
 *
 * var x = new Complex64Vector( [ -2.0, 1.0, 3.0, -5.0 ] );
 *
@@ -42,12 +55,9 @@
 * var out = caxpb( [ x, alpha, beta ] );
 * // returns <ndarray>[ <Complex64>[ -3.0, 2.0 ], <Complex64>[ 7.0, -10.0 ] ]
 */
-
-// MODULES //
-
-var main = require( './main.js' );
+declare function caxpb( arrays: [ complex64ndarray, typedndarray<Complex64>, typedndarray<Complex64> ] ): complex64ndarray;
 
 
 // EXPORTS //
 
-module.exports = main;
+export = caxpb;
